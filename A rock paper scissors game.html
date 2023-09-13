@@ -11,9 +11,7 @@
       align-items: center;
       justify-content: center;
       background-size: relative;
-
-
-    }
+     }
     p{
       font-size: bold;
       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -49,14 +47,22 @@
       score.wins = 0;
       score.losses = 0;
       score.draws = 0;
+      localStorage.removeItem('score');
       alert('Score has been reset');
       ">Reset Score</button>
     <script>
-      const score = {
-        wins: 0,
-        losses: 0,
-        draws: 0
-      };
+       let score = JSON.parse(localStorage.getItem('score')) || {
+          wins: 0,
+          losses: 0,
+          draws: 0
+        };
+
+     /* if (!score) {
+        score = {
+          wins: 0,
+          losses: 0,
+          draws: 0
+      }*/
 
       function gameTest(yourMove ) {
         const computerMove = pickComputerMove();
@@ -106,6 +112,10 @@
         } else if (outCome === 'draw'){
           score.draws += 1;
         }
+
+        localStorage.setItem('score', JSON.stringify(score));
+
+
         alert(`You picked ${yourMove}. Computer picked ${computerMove}. ${outCome}
 wins:${score.wins}, losses:${score.losses},draws:${score.draws}`);        
       }
