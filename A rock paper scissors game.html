@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <style>
+ <!-- <style>
 
     body{
       background-color:antiquewhite;
@@ -25,7 +25,7 @@
       margin: 8px 0;
       font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     }
-  </style>
+  </style>-->
   <head>
     <title>Rock paper scissors game</title><!--There are two types of boleans in Javascript True and False-->
   </head>
@@ -36,26 +36,37 @@
       /*there are types of logical operators used eg && that compares if bot sides are same , ||(or operater)that checks if one side is true, !(not operator) uses one bolean value and flips it to the other*/ 
       gameTest('Rock');
       ">Rock</button>
+
     <button onclick="
       gameTest('paper');
       ">Paper</button>
+
     <button onclick="
        gameTest('Scissors');
        
       ">Scissors</button>
+
+      <p class="js-result"></p>
+      <p class="js-move"></p>
+      <p class="js-score"></p>
+
       <button onclick="
       score.wins = 0;
       score.losses = 0;
       score.draws = 0;
       localStorage.removeItem('score');
       alert('Score has been reset');
+      scoreUpdate();
       ">Reset Score</button>
+
     <script>
        let score = JSON.parse(localStorage.getItem('score')) || {
           wins: 0,
           losses: 0,
           draws: 0
         };
+            
+        scoreUpdate();
 
      /* if (!score) {
         score = {
@@ -115,10 +126,19 @@
 
         localStorage.setItem('score', JSON.stringify(score));
 
+        scoreUpdate();
 
-        alert(`You picked ${yourMove}. Computer picked ${computerMove}. ${outCome}
-wins:${score.wins}, losses:${score.losses},draws:${score.draws}`);        
+        document.querySelector('.js-result')
+         .innerHTML = outCome;
+         
+         document.querySelector('.js-move')
+          .innerHTML = `You picked ${yourMove} - Computer picked${computerMove}`;       
       }
+       function scoreUpdate() {
+        document.querySelector('.js-score')
+         .innerHTML = `wins:${score.wins}, losses:${score.losses},draws:${score.draws}`;
+       }
+
       function pickComputerMove() {
         randomNumber = Math.random();
         let computerMove = '';
