@@ -29,7 +29,15 @@
       margin: 10px;
       cursor: pointer;
     }
-
+    .score{
+      margin: 50px;
+    }
+    .reset{
+      padding: 10px 20px;
+      border-radius: 15px;
+      border: none;
+      margin-left: 100px;
+    }
   </style>
   <head>
     <title>Rock paper scissors game</title><!--There are two types of boleans in Javascript True and False-->
@@ -41,24 +49,24 @@
       /*there are types of logical operators used eg && that compares if bot sides are same , ||(or operater)that checks if one side is true, !(not operator) uses one bolean value and flips it to the other*/ 
       gameTest('Rock');
       " class="image-button">
-      <img src="rock.jpeg" class="r-image">
+      <img src="images/rock.jpeg" class="r-image">
     </button>
 
     <button onclick="
       gameTest('paper');
       " class="image-button">
-      <img src="paper.jpg" class="p-image">
+      <img src="images/paper.jpg" class="p-image">
     </button>
 
     <button onclick="
        gameTest('Scissors');
       " class="image-button">
-      <img src="scissors.jpeg" class="s-image">
+      <img src="images/scissors.jpeg" class="s-image">
     </button>
 
       <p class="js-result"></p>
       <p class="js-move"></p>
-      <p class="js-score"></p>
+      <p class="js-score score"></p>
 
       <button onclick="
       score.wins = 0;
@@ -67,7 +75,7 @@
       localStorage.removeItem('score');
       alert('Score has been reset');
       scoreUpdate();
-      ">Reset Score</button>
+      " class="reset">Reset Score</button>
 
     <script>
        let score = JSON.parse(localStorage.getItem('score')) || {
@@ -142,7 +150,7 @@
          .innerHTML = outCome;
          
          document.querySelector('.js-move')
-          .innerHTML = `You picked ${yourMove} - Computer picked${computerMove}`;       
+          .innerHTML = `You picked ${yourMove} - Computer picked ${computerMove}`;       
       }
        function scoreUpdate() {
         document.querySelector('.js-score')
