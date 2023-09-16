@@ -1,50 +1,60 @@
 <!DOCTYPE html>
 <html>
- <!-- <style>
+  <style>
 
     body{
-      background-color:antiquewhite;
-      display: flex;
-      width: 100%;
-      height: 100vh;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background-size: relative;
-     }
-    p{
-      font-size: bold;
+      background-color:rgb(92, 91, 89);
+      color: white;
       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      }
+    .title{
+      font-size: 30px;
+      font-weight: bold;
+    }  
+    .r-image{
+      height: 50px;
     }
-    button{
-      border-radius: 20px;
-      border:none;
-      background-color: rgb(146, 20, 20);
-      box-shadow: 0cap whitesmoke;
-      font-size: 14px;
-      margin: 8px 0;
-      font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    .p-image{
+      height: 50px;
     }
-  </style>-->
+    .s-image{
+      height: 50px;
+    }
+    .image-button{
+      background:black;
+      border: 3px solid white;
+      width: 120px;
+      height: 120px;
+      border-radius: 60px;
+      margin: 10px;
+      cursor: pointer;
+    }
+
+  </style>
   <head>
     <title>Rock paper scissors game</title><!--There are two types of boleans in Javascript True and False-->
   </head>
   <Body>
-    <p>Rock Paper Scissors</p>
+    <p class="title">Rock Paper Scissors</p>
     <button onclick="
       /*Math.random generates a random number 0<=<1*/const randomNumber =Math.random();
       /*there are types of logical operators used eg && that compares if bot sides are same , ||(or operater)that checks if one side is true, !(not operator) uses one bolean value and flips it to the other*/ 
       gameTest('Rock');
-      ">Rock</button>
+      " class="image-button">
+      <img src="rock.jpeg" class="r-image">
+    </button>
 
     <button onclick="
       gameTest('paper');
-      ">Paper</button>
+      " class="image-button">
+      <img src="paper.jpg" class="p-image">
+    </button>
 
     <button onclick="
        gameTest('Scissors');
-       
-      ">Scissors</button>
+      " class="image-button">
+      <img src="scissors.jpeg" class="s-image">
+    </button>
 
       <p class="js-result"></p>
       <p class="js-move"></p>
